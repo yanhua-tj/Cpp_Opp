@@ -1,8 +1,8 @@
 /*
  * @Author: yanhua
  * @Date: 2020-03-17 18:04:25
- * @Last Modified by:   yanhua
- * @Last Modified time: 2020-03-17 18:04:25
+ * @Last Modified by: yanhua
+ * @Last Modified time: 2020-03-19 00:56:23
  */
 #include <iostream>
 #include <string>
@@ -13,37 +13,48 @@ using namespace std;
 
 struct commEntry
 {
+    unsigned int id;
     string name;
     string tel;
     string addr;
     commEntry *next;
 };
+struct Addrebook
+{
+    unsigned int num;
+    commEntry *head;
+};
 
 unsigned int displayMenu();
-void funChoose(commEntry *&head);
-void InputCommEntry(commEntry *&head);
+void funChoose(Addrebook &AddBook);
+void InputCommEntry(Addrebook &AddBook);
 void ShowCommEntry(commEntry *&head);
 void setName(commEntry &p);
 void setTel(commEntry &p);
 void setAddr(commEntry &p);
 void OuttoFile(commEntry *&head);
-void ReadtoFile(commEntry *&head);
+void ReadtoFile(Addrebook &AddBook);
+void Init(Addrebook &AddBook);
 
 int main()
 {
-    commEntry *head = new commEntry;
-    head->addr = "";
-    head->name = "";
-    head->tel = "";
-    head->next = NULL;
-    ReadtoFile(head);
-    funChoose(head);
-    OuttoFile(head);
-    delete head;
+    Addrebook AddBook;
+    Init(AddBook);
+    ReadtoFile(AddBook);
+    funChoose(AddBook);
+    OuttoFile(AddBook.head);
+    delete AddBook.head;
     return 0;
 }
 
-void ReadtoFile(commEntry *&head)
+void Init(Addrebook &AddBook)
+{
+    AddBook.num = 0;
+    AddBook.head = new commEntry;
+    AddBook.head->next = NULL;
+}
+
+void ReadtoFile(Addrebook &AddBook)
 {
     ifstream infile;
     char temp;
@@ -52,12 +63,14 @@ void ReadtoFile(commEntry *&head)
         while (infile.peek() != EOF)
         {
             commEntry *p = new commEntry;
-            p->next = head->next;
+            p->next = AddBook.head->next;
             getline(infile, p->name);
             getline(infile, p->tel);
             getline(infile, p->addr);
+            AddBook.num++;
+            p->id = AddBook.num;
             infile.get(temp);
-            head->next = p;
+            AddBook.head->next = p;
         }
     infile.close();
 }
@@ -94,7 +107,7 @@ unsigned int displayMenu()
     cin >> i;
     return i;
 }
-void funChoose(commEntry *&head)
+void funChoose(Addrebook &AddBook)
 {
     unsigned int ichoose = 1;
     while (ichoose != 0)
@@ -110,10 +123,10 @@ void funChoose(commEntry *&head)
         case 0: //功能0,结束程序
             break;
         case 1: //功能1,输入通讯录
-            InputCommEntry(head);
+            InputCommEntry(AddBook);
             break;
         case 2: //功能2,输出通讯录
-            ShowCommEntry(head);
+            ShowCommEntry(AddBook.head);
             break;
         case 3: //功能3,修改姓名
             //setName(peop);
@@ -127,10 +140,10 @@ void funChoose(commEntry *&head)
         }
     }
 }
-void InputCommEntry(commEntry *&head)
+void InputCommEntry(Addrebook &AddBook)
 {
     commEntry *comEp = new commEntry;
-    comEp->next = head->next;
+    comEp->next = AddBook.head->next;
     cout << endl;
     cout << "请输入: " << endl;
     cout << "姓名: ";
@@ -140,7 +153,9 @@ void InputCommEntry(commEntry *&head)
     getline(cin, comEp->tel);
     cout << "地址: ";
     getline(cin, comEp->addr);
-    head->next = comEp;
+    AddBook.head->next = comEp;
+    AddBook.num++;
+    comEp->id = AddBook.num;
     cout << "一条通讯录导入成功..." << endl;
 }
 void ShowCommEntry(commEntry *&head)
@@ -152,11 +167,14 @@ void ShowCommEntry(commEntry *&head)
     else
     {
         commEntry *p = head->next;
-        cout << setw(14) << left << "姓名"
+        cout << setw(6) << left << "编号"
+             << setw(14) << left << "姓名"
              << setw(18) << left << "电话"
              << "地址" << endl;
         while (p)
         {
+            cout << setfill('0') << setw(4) << right << p->id << "  ";
+            cout << setfill(' ');
             cout << setw(14) << left << p->name
                  << setw(18) << left << p->tel
                  << p->addr << endl;
