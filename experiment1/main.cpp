@@ -343,6 +343,7 @@ void InsertCom(Addrebook &AddBook)
         q->id = AddBook.num;
     }
 }
+
 void DeleteCom(Addrebook &AddBook)
 { //删除一条通讯录
     commEntry *p, *q;
@@ -361,6 +362,7 @@ void DeleteCom(Addrebook &AddBook)
         cout << "一条通讯录删除成功" << endl;
     }
 }
+
 void NameToTEL(commEntry *head)
 { //输入姓名查找电话
     commEntry *p = head->next;
