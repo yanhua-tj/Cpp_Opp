@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1585055274 source:c:\c++\experiment2\main.cpp
+	"CommEntry.h"
+
+1585055476 c:\c++\experiment2\commentry.h
+	<string>
+	<iostream>
+	<iomanip>
+	<cstdio>
+
+1585055266 source:c:\c++\experiment2\commentry.cpp
+	"CommEntry.h"
+
