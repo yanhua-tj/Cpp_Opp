@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 using namespace std;
+
+//通讯录条目类
 class CommEntry
 {
 public:

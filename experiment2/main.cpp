@@ -58,7 +58,7 @@ void funChoose()
             comE.setTel(str);
             break;
         case 5: //功能5,修改地址
-            cout << "\n修改姓名为: ";
+            cout << "\n修改地址为: ";
             fflush(stdin);
             getline(cin, str);
             comE.setAddr(str);
