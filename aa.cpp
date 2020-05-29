@@ -1,43 +1,31 @@
-/*
- * @Author: yanhua 
- * @Date: 2020-03-19 00:55:18 
- * @Last Modified by: yanhua
- * @Last Modified time: 2020-03-19 00:56:09
- */
 #include <fstream>
 #include <iostream>
+#include <string>
 using namespace std;
-const int cutoff = 6000;
-const float rate1 = 0.3;
-const float rate2 = 0.6;
+
 int main()
 {
-    ifstream infile;
-    ofstream outfile;
-    int income, tax;
-    infile.open("income.in");
-    outfile.open("tax.out");
-    if(!infile)
+    // ofstream out;
+    // out.open("text.txt", ios::out);
+    // out << "姓名：张三" << endl;
+    // out << "年龄：18" << endl;
+    // out << "家庭住址: hsgdd" << endl;
+    // out.close();
+    ifstream inf;
+    inf.open("text.txt", ios::in);
+    if (!inf.is_open())
+        cout << "文件打开失败" << endl;
+    char buf[1024] = {0};
+    while (inf.getline(buf, sizeof(buf)))
     {
-        cerr << "income.in鏂囦欢鎵撳紑澶辫触";
-        
-        exit(0);
+        cout << buf << endl;
     }
-    if(!outfile)
-    {
-        cerr << "tax.out鏂囦欢鎵撳紑澶辫触";
-        exit(0);
-    }
-    while (infile >> income)
-    {
-        if (income < cutoff)
-            tax = rate1 * income;
-        else
-            tax = rate2 * income;
-        outfile << "Income = " << income << " greenbacks\n"
-                << "Tax = " << tax << " greenbacks\n";
-    }
-    infile.close();
-    outfile.close();
+    // string str;
+    // while (getline(inf, str))
+    // {
+    //     cout << str << endl;
+    // }
+    inf.close();
+    system("pause");
     return 0;
 }

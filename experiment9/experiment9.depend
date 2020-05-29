@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1590752371 source:c:\c++\experiment9\commentry.cpp
+	"CommEntry.h"
+	<typeinfo>
+	<fstream>
+
+1590752371 c:\c++\experiment9\commentry.h
+	<string>
+	<iostream>
+	<iomanip>
+
+1590753307 source:c:\c++\experiment9\comms.cpp
+	"Comms.h"
+
+1590752371 c:\c++\experiment9\comms.h
+	"CommEntry.h"
+	<fstream>
+
+1590752817 source:c:\c++\experiment9\main.cpp
+	"CommEntry.h"
+	"Comms.h"
+	<cstdlib>
+

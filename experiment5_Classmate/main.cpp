@@ -5,10 +5,10 @@
 
 unsigned int displayMenu();         //主菜单的显示
 void funChoose(ClassmateEntry&);       //菜单选择
-void setFriName(ClassmateEntry&);      //修改同学条目的姓名
-void setFriTel(ClassmateEntry&);       //修改同学条目的电话
-void setFriAddr(ClassmateEntry&);      //修改同学条目的学校
-void setFriEmail(ClassmateEntry&);     //修改同学条目的班级
+void setClmateName(ClassmateEntry&);      //修改同学条目的姓名
+void setClmateTel(ClassmateEntry&);       //修改同学条目的电话
+void setClmateSch(ClassmateEntry&);      //修改同学条目的学校
+void setClmateCla(ClassmateEntry&);     //修改同学条目的班级
 
 int main()
 {
@@ -72,16 +72,16 @@ void funChoose(ClassmateEntry &a)
             cout << endl;
             break;
         case 3: //功能3,修改姓名
-            setFriName(a);
+            setClmateName(a);
             break;
         case 4: //功能4,修改电话
-            setFriTel(a);
+            setClmateTel(a);
             break;
         case 5: //功能5,修改学校
-            setFriAddr(a);
+            setClmateSch(a);
             break;
         case 6: //功能6,修改班级
-            setFriEmail(a);
+            setClmateCla(a);
             break;
         }
         system("pause");
@@ -90,7 +90,7 @@ void funChoose(ClassmateEntry &a)
 }
 
 //修改同学条目的姓名
-void setFriName(ClassmateEntry& a)
+void setClmateName(ClassmateEntry& a)
 {
     cout << "修改姓名为: ";
     string temp;
@@ -100,7 +100,7 @@ void setFriName(ClassmateEntry& a)
 }
 
 //修改同学条目的电话
-void setFriTel(ClassmateEntry& a)
+void setClmateTel(ClassmateEntry& a)
 {
     cout << "修改电话为: ";
     string temp;
@@ -110,21 +110,21 @@ void setFriTel(ClassmateEntry& a)
 }
 
 //修改同学条目的学校
-void setFriAddr(ClassmateEntry& a)
+void setClmateSch(ClassmateEntry& a)
 {
     cout << "修改学校为: ";
     string temp;
     getline(cin, temp);
-    a.setAddr(temp);
+    a.setSch(temp);
     cout << "修改成功!" << endl;
 }
 
 //修改同学条目的班级
-void setFriEmail(ClassmateEntry& a)
+void setClmateCla(ClassmateEntry& a)
 {
     cout << "修改班级为: ";
     string temp;
     getline(cin, temp);
-    a.setEmail(temp);
+    a.setCla(temp);
     cout << "修改成功!" << endl;
 }

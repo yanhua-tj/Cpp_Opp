@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1585055274 source:c:\c++\experiment2\main.cpp
+1586868186 source:c:\c++\experiment2\main.cpp
 	"CommEntry.h"
 
 1585055476 c:\c++\experiment2\commentry.h
@@ -8,6 +8,6 @@
 	<iomanip>
 	<cstdio>
 
-1585055266 source:c:\c++\experiment2\commentry.cpp
+1587903018 source:c:\c++\experiment2\commentry.cpp
 	"CommEntry.h"
 

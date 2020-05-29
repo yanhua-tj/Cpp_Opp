@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1588091000 source:c:\c++\experimentcomplex\complexcount.cpp
+	"Complexcount.h"
+
+1588090092 c:\c++\experimentcomplex\complexcount.h
+	"Complex.h"
+
+1588091951 c:\c++\experimentcomplex\complex.h
+	<iostream>
+
+1588093167 source:c:\c++\experimentcomplex\main.cpp
+	<iostream>
+	<cstdlib>
+	"Complex.h"
+	"Complexcount.h"
+
+1588091951 source:c:\c++\experimentcomplex\complex.cpp
+	"Complex.h"
+	<iostream>
+
+1588091951 source:c:\c++\experiment10complex\complex.cpp
+	"Complex.h"
+	<iostream>
+
+1588091951 c:\c++\experiment10complex\complex.h
+	<iostream>
+
+1588091000 source:c:\c++\experiment10complex\complexcount.cpp
+	"Complexcount.h"
+
+1588090092 c:\c++\experiment10complex\complexcount.h
+	"Complex.h"
+
+1588093167 source:c:\c++\experiment10complex\main.cpp
+	<iostream>
+	<cstdlib>
+	"Complex.h"
+	"Complexcount.h"
+

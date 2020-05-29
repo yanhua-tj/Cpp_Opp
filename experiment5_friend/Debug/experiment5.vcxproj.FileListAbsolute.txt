@@ -1,0 +1,4 @@
+C:\C++\experiment5\Debug\experiment5.exe
+C:\C++\experiment5\Debug\experiment5.pdb
+C:\C++\experiment5_friend\Debug\experiment5.exe
+C:\C++\experiment5_friend\Debug\experiment5.pdb

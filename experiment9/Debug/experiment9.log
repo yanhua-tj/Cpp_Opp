@@ -1,0 +1,4 @@
+﻿  Comms.cpp
+C:\C++\experiment9\Comms.cpp(147,23): warning C4018: “<”: 有符号/无符号不匹配
+C:\C++\experiment9\Comms.cpp(159,23): warning C4018: “<”: 有符号/无符号不匹配
+  experiment9.vcxproj -> C:\C++\experiment9\Debug\experiment9.exe

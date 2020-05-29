@@ -3,7 +3,7 @@
 //using namespace std;
 
 unsigned int displayMenu();
-void funChoose();
+void funChoose(CommEntry *comE);
 void setName(CommEntry &comE);
 void setTel(CommEntry &comE);
 void setTelType(CommEntry &comE);
@@ -28,10 +28,9 @@ unsigned int displayMenu()
     return i;
 }
 
-void funChoose()
+void funChoose(CommEntry *comE)
 { //Ñ¡Ôñ¹¦ÄÜ
     unsigned int ichoose = 1;
-    CommEntry *comE = NULL;
     char t;
     while (ichoose != 0)
     {
@@ -148,6 +147,7 @@ CommEntry *Init()
 
 int main()
 {
-    funChoose();
+    CommEntry *comE = NULL;
+    funChoose(comE);
     return 0;
 }

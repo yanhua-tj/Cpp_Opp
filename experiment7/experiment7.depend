@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1586844517 source:c:\c++\experiment7\commentry.cpp
+	"CommEntry.h"
+	<iostream>
+	<iomanip>
+
+1586847053 c:\c++\experiment7\commentry.h
+	<string>
+

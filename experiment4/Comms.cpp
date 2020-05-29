@@ -1,71 +1,136 @@
-#include <iostream>
-#include <iomanip>
-#include "CommEntry.h"
 #include "Comms.h"
-using namespace std;
-
-//通讯录初始化通讯录条目个数
-Comms::Comms(int num = 10)
+//初始化构造函数
+Comms::Comms(unsigned maxCount) : m_count(0)
 {
-    m_Maxnum = num;                 //通讯录默认最大10个条目
-    m_count = 0;                    //当前通讯录个数初始化0
-    m_pCe = new CommEntry[num];     //动态开辟指针数组
+    //初始化最大通讯录数
+    m_maxCount = maxCount;
+    mp_Ce = new CommEntry[m_maxCount];
 }
 
-//析构释放通讯录条目内存
+//析构释放内存
 Comms::~Comms()
 {
-    delete []m_pCe;     //释放内存
+    delete[]mp_Ce;
 }
 
-//输入一些通讯录条目
-void Comms::inputSome()
+//输入通讯录
+void Comms::input()
 {
-    cout << "请输入要添加几个通讯录: " << endl;
+    cout << "请输入添加条目个数: ";
     unsigned num = 0;
     cin >> num;
-    while (num + m_count > m_Maxnum)
+    while (m_count + num > m_maxCount)
     {
-        cout << "剩余通讯录不够存储, 请重新输入! " << endl;
+        cout << "剩余通讯录条目数量不足, 剩余" << m_maxCount - m_count << endl;
+        cout << "请输入添加条目个数: ";
         cin >> num;
     }
-    for (int i = m_count; i < num + m_count; i++)
+    cin.ignore(16, '\n');           //清空缓冲区
+    for (int i = 0; i < (int)num; i++)
     {
-        m_pCe[i].input();
+        cout << "添加第" << i + 1 << "条通讯录" << endl;
+        mp_Ce[i + m_count].input();
     }
+    m_count += num;
 }
 
-//输出全部通讯录条目
+//输出通讯录
 void Comms::outputAll()
 {
-    cout << left;
-    cout << setw(12) << "姓名"
-        << setw(18) << "电话"
-        << setw(12) << "拥有者" << endl;
-    for (int i = 0; i < m_count; i++)
+    CommEntry::outputInfo();
+    cout << endl;
+    for (unsigned i = 0; i < m_count; i++)
     {
-        m_pCe[i].output();
+        mp_Ce[i].output();
     }
+    cout << "当前通讯录一共有: " << m_count;
+    cout << "\t通讯录最大容量: " << m_maxCount << endl;
 }
 
-//输入姓名查找通讯录,返回下标
-int Comms::findComName(string name)
+//输入姓名查找下标
+int Comms::findname(string name)
 {
-    for (int i = 0; i < m_Maxnum; i++)
+    for (unsigned i = 0; i < m_count; i++)
     {
-        if(m_pCe[i].getName() == name)
-            return i;
+        if (mp_Ce[i].getName() == name)
+        {
+            return (int)i;
+        }
+    }
+    return -1;
+}
+
+//输入电话查找下标
+int Comms::findtel(string tel)
+{
+    for (unsigned i = 0; i < m_count; i++)
+    {
+        if (mp_Ce[i].getTel() == tel)
+        {
+            return (int)i;
+        }
+    }
+    return -1;
+}
+
+//输入姓名修改其电话
+void Comms::modifytel(string name, string tel)
+{
+    mp_Ce[findname(name)].setTel(tel);
+    cout << name << "电话修改为: " << tel << endl;
+}
+
+//输入电话修改其姓名
+void Comms::modifyname(string tel, string name)
+{
+    mp_Ce[findtel(tel)].setName(name);
+    cout << tel << "的联系人修改为: " << name << endl;
+}
+
+//输入电话模糊查找
+void Comms::fuzzysearchtel(string tel)
+{
+    int count = 0;
+    cout << "模糊查找结果: " << endl;
+    for (unsigned i = 0; i < m_count; i++)
+    {
+        string s1 = mp_Ce[i].getTel();
+        if (s1.find(tel) != string::npos)
+        {
+            cout << s1 << endl;
+            count ++;
+        }
+    }
+    if (count == 0)
+    {
+        cout << "模糊查找没有结果" << endl;
+    }
+    else
+    {
+        cout << "模糊查找到" << count << "条信息" << endl;
     }
 }
 
-//输入姓名,修改电话
-void modifyTel(string name, string tel);
-
-//输入电话,返回通讯录条目下标
-int findComTel(string tel);
-
-//输入电话,修改姓名
-void modifyName(string tel, string name);
-
-//输入姓名进行模糊查找
-void fuzzySearch(string name);
+//输入姓名模糊查找
+void Comms::fuzzysearchname(string name)
+{
+    int count = 0;
+    cout << "模糊查找结果: " << endl;
+    for (unsigned i = 0; i < m_count; i++)
+    {
+        string s1 = mp_Ce[i].getName();
+        if (s1.find(name) != string::npos)
+        {
+            cout << s1 << endl;
+            count++;
+        }
+    }
+    if (count == 0)
+    {
+        cout << "模糊查找没有结果" << endl;
+    }
+    else
+    {
+        cout << "模糊查找到" << count << "条信息" << endl;
+    }
+}

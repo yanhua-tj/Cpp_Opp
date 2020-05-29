@@ -1,47 +1,34 @@
 #pragma once
-#include <string>
 #include "CommEntry.h"
-using namespace std;
-
-//通讯录类
 class Comms
 {
-public:
-    //通讯录初始化通讯录条目个数
-    Comms(int num);
-
-    //析构释放通讯录条目内存
-    ~Comms();
-
-    //输入一些通讯录条目
-    void inputSome();
-
-    //输出一些通讯录条目
-    void outputAll();
-
-    //输入姓名查找通讯录,返回下标
-    int findComName(string name);
-
-    //输入姓名,修改电话
-    void modifyTel(string name, string tel);
-
-    //输入电话,返回通讯录条目下标
-    int findComTel(string tel);
-
-    //输入电话,修改姓名
-    void modifyName(string tel, string name);
-
-    //输入姓名进行模糊查找
-    void fuzzySearch(string name);
-
 private:
-    //通讯录条目指针
-    CommEntry *m_pCe;
-
-    //通讯录最大个数
-    int m_Maxnum;
-
+    //通讯录条目最大数
+    unsigned m_maxCount;
     //通讯录当前个数
-    int m_count;
-};
+    unsigned m_count;
+    //通讯录条目指针数组
+    CommEntry *mp_Ce;
 
+public:
+    //初始化构造函数
+    Comms(unsigned maxCount = 10);
+    //析构函数释放内存
+    ~Comms();
+    //输入通讯录
+    void input();
+    //输出通讯录
+    void outputAll();
+    //输入姓名查找下标
+    int findname(string name);
+    //输入电话查找下标
+    int findtel(string tel);
+    //输入姓名修改其电话
+    void modifytel(string name, string tel);
+    //输入电话修改其姓名
+    void modifyname(string tel, string name);
+    //输入电话模糊查找
+    void fuzzysearchtel(string tel);
+    //输入姓名模糊查找
+    void fuzzysearchname(string name);
+};

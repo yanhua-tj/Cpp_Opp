@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1587483824 source:c:\c++\experiment8\commentry.cpp
+	"CommEntry.h"
+
+1587474783 c:\c++\experiment8\commentry.h
+	<string>
+	<iostream>
+	<iomanip>
+
+1587641203 source:c:\c++\experiment8\comms.cpp
+	"Comms.h"
+	<typeinfo>
+
+1587488471 c:\c++\experiment8\comms.h
+	"CommEntry.h"
+	"FriendEntry.h"
+
+1587470682 c:\c++\experiment8\friendentry.h
+	"CommEntry.h"
+
+1587483824 source:c:\c++\experiment8\friendentry.cpp
+	"FriendEntry.h"
+
+1587488471 source:c:\c++\experiment8\main.cpp
+	"CommEntry.h"
+	"FriendEntry.h"
+	"Comms.h"
+	<cstdlib>
+

@@ -40,6 +40,13 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "xutility": "cpp",
+        "ios": "cpp",
+        "xiosbase": "cpp",
+        "list": "cpp",
+        "xtr1common": "cpp",
+        "set": "cpp",
+        "complex": "cpp"
     }
 }

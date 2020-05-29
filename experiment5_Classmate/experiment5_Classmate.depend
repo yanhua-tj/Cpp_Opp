@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1586874572 source:c:\c++\experiment5_classmate\classmateentry.cpp
+	"ClassmateEntry.h"
+
+1586874571 c:\c++\experiment5_classmate\classmateentry.h
+	"CommEntry.h"
+
+1586871589 c:\c++\experiment5_classmate\commentry.h
+	<string>
+	<iostream>
+	<iomanip>
+
+1586871589 source:c:\c++\experiment5_classmate\commentry.cpp
+	"CommEntry.h"
+
+1586874980 source:c:\c++\experiment5_classmate\main.cpp
+	"ClassmateEntry.h"
+	<cstdlib>
+

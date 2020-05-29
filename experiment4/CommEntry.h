@@ -1,10 +1,17 @@
 #pragma once
 #include <string>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
-//通讯录条目类
 class CommEntry
 {
+private:
+    //姓名
+    string m_name;
+    //电话
+    string m_tel;
+
 public:
     //输入通讯录条目
     void input();
@@ -12,31 +19,18 @@ public:
     //输出通讯录条目
     void output();
 
-    //设置条目姓名
+    //输出通讯录条目的属性
+    static void outputInfo();
+
+    //设置条目的名字
     void setName(string name);
 
-    //设置条目电话
+    //设置条目的电话
     void setTel(string tel);
 
-    //设置条目拥有者
-    void setOwner(string owner);
-
-    //获取条目姓名
+    //获取姓名
     string getName();
 
-    //获取条目电话
+    //获取电话
     string getTel();
-
-    //获取条目拥有者
-    string getOwner();
-
-private:
-    //通讯录条目姓名
-    string m_Name;
-
-    //通讯录条目电话
-    string m_Tel;
-
-    //通讯录条目拥有者
-    static string sm_Owner;
 };

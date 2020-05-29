@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1586871589 source:c:\c++\experiment5_friend\commentry.cpp
+	"CommEntry.h"
+
+1586871589 c:\c++\experiment5_friend\commentry.h
+	<string>
+	<iostream>
+	<iomanip>
+
+1586872099 source:c:\c++\experiment5_friend\friendentry.cpp
+	"FriendEntry.h"
+
+1586872099 c:\c++\experiment5_friend\friendentry.h
+	"CommEntry.h"
+
+1586873007 source:c:\c++\experiment5_friend\main.cpp
+	"FriendEntry.h"
+	<cstdlib>
+

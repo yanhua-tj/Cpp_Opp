@@ -1,0 +1,2 @@
+C:\C++\experiment7\Debug\experiment7.exe
+C:\C++\experiment7\Debug\experiment7.pdb
